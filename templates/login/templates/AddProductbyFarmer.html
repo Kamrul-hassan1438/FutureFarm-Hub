@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProfilePage</title>
+    <style>
+        *.container {
+            display: flex;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .left-sidebar {
+            background: #efefef;
+            flex-basis: 15%;
+            /* Adjusted to 10% */
+            position: sticky;
+            top: 70px;
+            height: calc(100vh - 70px);
+            overflow-y: auto;
+            padding: 20px;
+            border-radius: 4px;
+            color: #626262;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left-sidebar {
+                flex-basis: 100%;
+                /* Adjusted to 100% */
+                position: relative;
+                top: 0;
+                height: auto;
+                margin-bottom: 10px;
+                /* Added margin bottom */
+            }
+
+            .main-content {
+                width: 90%;
+            }
+        }
+
+        .main-content {
+            background: #3c683c;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 90%;
+            /* Adjusted to 90% */
+        }
+
+
+        .left-sidebar img {
+            width: 20px;
+            cursor: pointer;
+        }
+
+
+        .order-item {
+            display: inline-block;
+            margin: 10px;
+            vertical-align: top;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 200px;
+            max-height: 200px;
+        }
+
+        .cart-item-box {
+            display: inline-block;
+            margin: 10px;
+            vertical-align: top;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 200px;
+            max-height: 200px;
+        }
+
+        .product {
+            display: inline-block;
+            margin: 10px;
+            vertical-align: top;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 200px;
+            max-height: 200px;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .product img {
+            width: 40px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border-radius: 50%;
+        }
+
+        .product-info {
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* New CSS styles for payment instructions */
+        #paymentInstructions {
+            margin-top: 20px;
+        }
+
+        #bankTransferInstructions,
+        #mobileBankingInstructions {
+            display: none;
+            margin-top: 10px;
+        }
+
+
+
+        button {
+            border: none;
+            padding: 8px 16px;
+            font-size: 10px;
+            position: relative;
+            background: transparent;
+            color: #007732;
+            ;
+            text-transform: uppercase;
+            border: 3px solid #27ae60;
+            ;
+            cursor: pointer;
+            transition: all 0.7s;
+            overflow: hidden;
+            border-radius: 100px;
+        }
+
+        button:hover {
+            color: #000;
+        }
+
+        span {
+            transition: all 0.7s;
+            z-index: -1;
+        }
+
+        button .first {
+            content: "";
+            position: absolute;
+            right: 100%;
+            top: 0;
+            width: 25%;
+            height: 100%;
+            background: #27ae60;
+            ;
+        }
+
+        button:hover .first {
+            top: 0;
+            right: 0;
+        }
+
+        button .second {
+            content: "";
+            position: absolute;
+            left: 25%;
+            top: -100%;
+            height: 100%;
+            width: 25%;
+            background: #27ae60;
+            ;
+        }
+
+        button:hover .second {
+            top: 0;
+            left: 50%;
+        }
+
+        button .third {
+            content: "";
+            position: absolute;
+            left: 50%;
+            height: 100%;
+            top: 100%;
+            width: 25%;
+            background: #27ae60;
+            ;
+        }
+
+        button:hover .third {
+            top: 0;
+            left: 25%;
+        }
+
+        button .fourth {
+            content: "";
+            position: absolute;
+            left: 100%;
+            top: 0;
+            height: 100%;
+            width: 25%;
+            background: #27ae60;
+            ;
+        }
+
+        button:hover .fourth {
+            top: 0;
+            left: 0;
+        }
+
+        .sidebar-buttons {
+            padding: 6px 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-sidebar" id="leftSidebar">
+            <div class="sidebar-buttons">
+                <div style="margin-bottom: 10px;">
+                    <button class="sidebar-button" onclick="openOrders()">
+                        <img src="../../../static/profiles/img/orders.png">
+                        <span>Orders<span class="first"></span>
+                            <span class="second"></span>
+                            <span class="third"></span>
+                            <span class="fourth"></span></span>
+                    </button>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <button class="sidebar-button" onclick="openUploadModal()">
+                        <img src="../../../static/profiles/img/add-button.png">
+                        <span>Add New<span class="first"></span>
+                            <span class="second"></span>
+                            <span class="third"></span>
+                            <span class="fourth"></span></span>
+                    </button>
+                </div>
+            </div>
+            <div id="ordersContent" style="display: none;"></div>
+        </div>
+
+        <!-- Main-content -->
+        <!-- Main-content -->
+        <!-- Main-content -->
+        <div class="main-content">
+            {% for product in products %}
+            <div class="product">
+                <img src="data:image/jpeg;base64,{{ product['Image'] }}" alt="Product Image">
+                <div class="product-info">
+                    <span class="product-name">{{ product['CropName'] }}</span><br>
+                    <span class="product-region">Region: {{ product['Region'] }}</span><br>
+                    <span class="product-value">Value: {{ product['Price'] }}</span><br>
+                    <span class="product-producer">Produced by: {{ product['FarmerID'] }}</span><br>
+                    <span class="product-quantity">Quantity: {{ product['QuantityAvailable'] }}</span>
+                </div>
+                <div class="product-price">{{ product['Price'] }}</div>
+                <!-- Add any other product-related information or actions here -->
+            </div>
+            {% endfor %}
+        </div>
+        
+
+    </div>
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeUploadModal()">&times;</span>
+            <h2>Upload Product</h2>
+            <form id="uploadForm" action="/upload" method="post">
+                <!-- Add a file input for uploading the product image -->
+                <label for="productImageUpload">Upload Image:</label><br>
+                <input type="file" id="productImageUpload" accept="image/*" onchange="previewImage(event)">
+                <div id="imagePreview"></div>
+                <label for="productName">Product Name:</label><br>
+                <input type="text" id="productName" name="productName"><br><br>
+                <label for="productRegion">Region:</label><br>
+                <input type="text" id="productRegion" name="productRegion"><br><br>
+                <label for="productValue">Value:</label><br>
+                <input type="text" id="productValue" name="productValue"><br><br>
+                <label for="productProducer">Produced by:</label><br>
+                <input type="text" id="productProducer" name="productProducer"><br><br>
+                <label for="productQuantity">Quantity :</label><br>
+                <input type="text" id="productQuantity" name="productQuantity"><br><br>
+                <button type="button" class="product-button" id="addProduct">Add Product</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function removeProduct(button) {
+            var productBox = button.parentElement;
+            var mainContent = productBox.parentElement;
+            mainContent.removeChild(productBox);
+        }
+
+
+        function openOrders() {
+            var ordersContent = document.getElementById("ordersContent");
+            if (ordersContent.style.display === "block") {
+                ordersContent.style.display = "none";
+            } else {
+                ordersContent.innerHTML = "";
+                var orders = [
+                    { productName: "Apple", quantity: 2, buyerName: "Rahim", region: "Dhaka" },
+                    { productName: "Banana", quantity: 3, buyerName: "Jane Smith", region: "Chandpur" },
+                    // Add more orders as needed
+                ];
+
+                orders.forEach(function (order) {
+                    var orderItem = document.createElement("div");
+                    orderItem.className = "order-item";
+                    orderItem.innerHTML = `
+                    <div>${order.productName}</div>
+<div>Quantity: ${order.quantity}</div>
+<div>Buyer: ${order.buyerName}</div>
+<div>Region: ${order.region}</div>
+<button class="sent-button" onclick="markAsSent(this)">Sent</button>
+            `;
+                    ordersContent.appendChild(orderItem);
+                });
+
+                // Display the orders content
+                ordersContent.style.display = "block";
+            }
+        }
+        function markAsSent(button) {
+            // Get the parent element of the button, which is the order item
+            var orderItem = button.parentElement;
+            // Remove the order item from its parent element (the orders content)
+            orderItem.remove();
+        }
+
+
+
+
+        function openUploadModal() {
+            var uploadModal = document.getElementById("uploadModal");
+            uploadModal.style.display = "block";
+        }
+
+        function closeUploadModal() {
+            var uploadModal = document.getElementById("uploadModal");
+            uploadModal.style.display = "none";
+        }
+        // Function to preview the uploaded image
+        function previewImage(event) {
+            var imagePreview = document.getElementById('imagePreview');
+            var file = event.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function () {
+                var img = new Image();
+                img.src = reader.result;
+                img.width = 100; // Adjust the width as needed
+                img.height = 100; // Adjust the height as needed
+                imagePreview.innerHTML = ''; // Clear any previous image
+                imagePreview.appendChild(img);
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('addProduct').addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent the default behavior of the link
+
+                var productName = document.getElementById("productName").value;
+                var productRegion = document.getElementById("productRegion").value;
+                var productValue = document.getElementById("productValue").value;
+                var productProducer = document.getElementById("productProducer").value;
+                var productQuantity = document.getElementById("productQuantity").value;
+                // Get the uploaded image file
+                var productImageFile = document.getElementById("productImageUpload").files[0];
+
+                // Create a FormData object to send data
+                var formData = new FormData();
+                formData.append('productName', productName);
+                formData.append('productRegion', productRegion);
+                formData.append('productValue', productValue);
+                formData.append('productProducer', productProducer);
+                formData.append('productQuantity', productQuantity);
+                formData.append('productImageUpload', productImageFile);
+
+                // Send AJAX request
+                fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            // If the response is successful, print something
+                            console.log('Product uploaded successfully!');
+                            // You can also redirect to another page or perform other actions upon success
+                        } else {
+                            console.error('Error:', response.statusText);
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+
+
+
+                var productName = document.getElementById("productName").value;
+                var productRegion = document.getElementById("productRegion").value;
+                var productValue = document.getElementById("productValue").value;
+                var productProducer = document.getElementById("productProducer").value;
+                var productQuantity = document.getElementById("productQuantity").value;
+                // Get the uploaded image file
+                var productImageFile = document.getElementById("productImageUpload").files[0];
+
+
+
+                // Check if an image file is selected
+                if (productImageFile) {
+                    var reader = new FileReader();
+                    reader.onload = function (event) {
+                        var productImage = event.target.result;
+
+
+                        // Create product element
+                        var product = document.createElement("div");
+                        product.className = "product";
+                        product.innerHTML = `
+                <img src="${productImage}" alt="${productName}">
+                <div class="product-info">
+                    <span class="product-name">${productName}</span><br>
+                    <span class="product-region">Region: ${productRegion}</span><br>
+                    <span class="product-value">Value: ${productValue}</span><br>
+                    <span class="product-producer">Produced by: ${productProducer}</span>
+                    <span class="product-Quantity">Produced by: ${productQuantity}</span>
+                </div>
+                <div class="product-price">${productValue}</div>
+                <button class="product-button remove-button" onclick="removeProduct(this)">Remove</button>
+            `;
+
+                        // Append product to main content
+                        var mainContent = document.querySelector(".main-content");
+                        mainContent.appendChild(product);
+
+                        // Close upload modal
+                        closeUploadModal();
+                    };
+
+                    reader.readAsDataURL(productImageFile);
+                } else {
+                    // If no image file is selected, create product without image
+                    // Create product element
+                    var product = document.createElement("div");
+                    product.className = "product";
+                    product.innerHTML = `
+            <div class="product-info">
+                <span class="product-name">${productName}</span><br>
+                <span class="product-region">Region: ${productRegion}</span><br>
+                <span class="product-value">Value: ${productValue}</span><br>
+                <span class="product-producer">Produced by: ${productProducer}</span>
+                <span class="product-Quantity">Produced by: ${productQuantity}</span>
+            </div>
+            <div class="product-price">${productValue}</div>
+            <button class="product-button remove-button" onclick="removeProduct(this)">Remove</button>
+        `;
+
+                    // Append product to main content
+                    var mainContent = document.querySelector(".main-content");
+                    mainContent.appendChild(product);
+
+                    // Close upload modal
+                    closeUploadModal();
+                }
+
+
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

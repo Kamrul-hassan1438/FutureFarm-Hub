@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>FutureFarm Hub</title>
+  <!-- plugins:css -->
+
+
+  <link rel="icon" type="image/x-icon" class="circular-img" href="{{ url_for('static', filename='img/favicon.png') }}">
+
+  <link rel="stylesheet" href="{{ url_for('serve_static', filename='Add&updated/css/style.css') }}">
+  <link rel="stylesheet"
+    href="{{ url_for('serve_static', filename='Add&updated/vendor/bootstrap-icons/bootstrap-icons.css') }}">
+  <link rel="stylesheet"
+    href="{{ url_for('serve_static', filename='Add&updated/vendors/mdi/css/materialdesignicons.min.css') }}">
+  <style>
+    .X li {
+      margin-bottom: 7px;
+    }
+
+    header {
+      background-color: #f2f2f2;
+      padding: 10px 0;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    nav ul li:last-child {
+      margin-right: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #ddd;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#Crops_Information">Crops Information</a></li>
+        <li><a href="#Update_Price">Crops Price</a></li>
+        <li><a href="#Seminar">Seminar</a></li>
+        <li><a href="#Add_Farmer">Add Farmer</a></li>
+        <li><a href="#Add_Laborer">Add Laborer</a></li>
+      </ul>
+    </nav><!-- .navbar -->
+  </header>
+
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper">
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="page-header">
+            <input type="hidden">{{AdminID}}</input>
+            <h3 a class="page-title"> Add & Updates </h3>
+          </div>
+          <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body" id="Crops_Information">
+                  <h4 class="card-title">Add Crops Information</h4>
+                  <form class="forms-sample" action="/crops_update" method="POST">
+                    <div class="form-group">
+                      <label for="crop_name">Crop Name</label>
+                      <input type="text" class="form-control" id="crop_name" name="crop_name" placeholder="Crop name">
+                    </div>
+                    <div class="form-group">
+                      <label for="soil_ph">Required Soil pH</label>
+                      <input type="text" class="form-control" id="soil_ph" name="soil_ph"
+                        placeholder="Required soil pH">
+                    </div>
+                    <div class="form-group">
+                      <label for="required_weather">Required Weather</label>
+                      <input type="text" class="form-control" id="required_weather" name="required_weather"
+                        placeholder="Required Weather">
+                    </div>
+                    <div class="form-group">
+                      <label for="required_temperature">Required Temperature</label>
+                      <input type="text" class="form-control" id="required_temperature" name="required_temperature"
+                        placeholder="Required Temperature">
+                    </div>
+                    <div class="form-group">
+                      <label for="growth_period">Growth Period</label>
+                      <input type="text" class="form-control" id="growth_period" name="growth_period"
+                        placeholder="Growth Period">
+                    </div>
+                    <div class="form-group">
+                      <label for="harvest_time_period">Harvest Time Period</label>
+                      <input type="text" class="form-control" id="harvest_time_period" name="harvest_time_period"
+                        placeholder="Harvest Time Period">
+                    </div>
+                    <div class="form-group">
+                      <label for="fertilizer_name">Fertilizer Name</label>
+                      <input type="text" class="form-control" id="fertilizer_name" name="fertilizer_name"
+                        placeholder="Fertilizer Name">
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-dark">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body" id="Update_Price">
+                  <h4 class="card-title">Update Crops Price</h4>
+
+                  <form class="forms-sample" action="/crop_prices_update" method="POST">
+                    <div class="form-group row">
+                      <label for="crop_id" class="col-sm-3 col-form-label">Crop ID</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="crop_id" name="crop_id" placeholder="Crop ID">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="region_id" class="col-sm-3 col-form-label">Region ID</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="region_id" name="region_id" placeholder="Region ID">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="price" class="col-sm-3 col-form-label">Price</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="price" name="price" placeholder="Price">
+                      </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button type="button" class="btn btn-dark">Cancel</button>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body" id="Seminar">
+                  <h4 class="card-title"><i class="bi bi-calendar-check">Create Seminar</i></h4>
+                  <p class="card-description"> Basic Add & Update </p>
+                  <form onsubmit="return validateSeminarForm()" class="forms-sample" action="/seminar_update"
+                    method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="seminarTitle">Seminar Title</label>
+                      <input type="text" class="form-control" id="seminarTitle" name="seminarTitle"
+                        placeholder="Seminar Title" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="speakerName">Speaker Name</label>
+                      <input type="text" class="form-control" id="speakerName" name="speakerName"
+                        placeholder="Speaker Name" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="qualification">Qualification</label>
+                      <input type="text" class="form-control" id="qualification" name="qualification"
+                        placeholder="Qualification" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="meetingDate">Date</label>
+                      <input type="date" class="form-control" id="meetingDate" name="meetingDate" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="meetingTime">Time</label>
+                      <input type="time" class="form-control" id="meetingTime" name="meetingTime" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="emailAddress">Email Address</label>
+                      <input type="email" class="form-control" id="emailAddress" name="email"
+                        placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="venue">Venue</label>
+                      <input type="text" class="form-control" id="venue" name="venue" placeholder="Venue" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="keyTopics">Key Topics</label>
+                      <input type="text" class="form-control" id="keyTopics" name="keyTopics" placeholder="Key Topics"
+                        required>
+                    </div>
+                    <div class="form-group">
+                      <label for="sponsors">Sponsors and Partners</label>
+                      <input type="text" class="form-control" id="sponsors" name="sponsors"
+                        placeholder="Sponsors and Partners" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="city">City</label>
+                      <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="details">Details</label>
+                      <textarea class="form-control" id="details" name="details" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="imageUpload">File Upload</label>
+                      <input type="file" name="image" class="form-control-file" id="imageUpload">
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button type="button" class="btn btn-dark">Cancel</button>
+                  </form>
+
+
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 grid-margin stretch-card" id="laborerContainer">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Laborer List</h4>
+                  <div class="cardborder">
+                    <ul id="laborerList">
+                      <!-- Laborers will be dynamically added here -->
+                      {% for laborer in laborers %}
+                      <li>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <span>{{ laborer.Name }}</span>
+                          <button type="button" class="btn btn-primary mr-2">View</button>
+                        </div>
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                  <button type="button" class="btn btn-primary mr-2">Back</button>
+                  <button type="button" class="btn btn-primary mr-2">Next</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 grid-margin stretch-card" id="farmerContainer">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Farmer List</h4>
+                  <div class="cardborder">
+                    <ul id="farmerList">
+                      <!-- Farmers will be dynamically added here -->
+                      {% for farmer in farmers %}
+                      <li>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <span>{{ farmer.Name }}</span>
+                          <button type="button" class="btn btn-primary mr-2">View</button>
+                        </div>
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                  <button type="button" class="btn btn-primary mr-2">Back</button>
+                  <button type="button" class="btn btn-primary mr-2">Next</button>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body" id="Add_Farmer">
+
+                  <h4 class="card-title">Add Farmer<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                      fill="currentColor" class="bi bi-person-add" viewBox="0 0 16 16">
+                      <path
+                        d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
+                      <path
+                        d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z" />
+                    </svg>
+                  </h4>
+
+                  <form class="form-sample" action="/register" method="POST">
+                    <p class="card-description"><strong>Create an Account For a Farmer In Your Region</strong></p>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Name</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="Name" name="name" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Mail Address</label>
+                          <div class="col-sm-9">
+                            <input type="email" class="form-control" placeholder="example@gmail.com" name="email" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Password</label>
+                          <div class="col-sm-9">
+                            <input type="password" class="form-control" id="exampleInputPassword2"
+                              placeholder="Password" name="password">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Confirm
+                            Password</label>
+                          <div class="col-sm-9">
+                            <input type="password" class="form-control" id="exampleInputConfirmPassword2"
+                              placeholder="Confirm Password" name="confirm_password">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Contact</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="Contact number" name="contact" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Region</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="Region" name="region" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Hidden input field for "Type" set to "Farmer" -->
+                    <input type="hidden" name="Type" value="Farmer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+
+
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body" id="Add_Laborer">
+                  <h4 class="card-title">Add Laborer<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                      fill="currentColor" class="bi bi-person-add" viewBox="0 0 16 16">
+                      <path
+                        d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
+                      <path
+                        d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z" />
+                    </svg></h4>
+                  <form class="form-sample" action="/register" method="POST">
+                    <p class="card-description"><strong>Create an Account For a Farmer In Your Region</strong></p>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Name</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="Name" name="name" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Mail Address</label>
+                          <div class="col-sm-9">
+                            <input type="email" class="form-control" placeholder="example@gmail.com" name="email" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Password</label>
+                          <div class="col-sm-9">
+                            <input type="password" class="form-control" id="exampleInputPassword2"
+                              placeholder="Password" name="password">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Confirm
+                            Password</label>
+                          <div class="col-sm-9">
+                            <input type="password" class="form-control" id="exampleInputConfirmPassword2"
+                              placeholder="Confirm Password" name="confirm_password">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Contact</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="Contact number" name="contact" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Region</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="Region" name="region" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Hidden input field for "Type" set to "Farmer" -->
+                    <input type="hidden" name="Type" value="Laborer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{{ url_for('serve_static', filename='Add&updated/js/select2.js') }}"></script>
+    <script
+      src="{{ url_for('serve_static', filename='Add&updated/vendors/typeahead.js/typeahead.bundle.min.js') }}"></script>
+    <script src="{{ url_for('serve_static', filename='Add&updated/vendors/js/vendor.bundle.base.js') }}"></script>
+
+</body>
+
+</html>

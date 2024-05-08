@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FutureFarm Hub/Blog</title>
+  <link href="{{ url_for('serve_static', filename='blog.css') }}" rel="stylesheet">
+</head>
+
+<body>
+
+  <section class="post-form">
+    <div class="container">
+      <h2>Write a New Post</h2>
+      <form id="postForm">
+        <label for="postTitle">Title:</label><br>
+        <input type="text" id="postTitle" name="postTitle"><br>
+        <label for="postContent">Content:</label><br>
+        <textarea id="postContent" name="postContent" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </section>
+
+
+
+  <div class="about-content container-fluid">
+    <div class="container-xl px-0 px-md-5">
+      <div class="row mb-5">
+        <div class="col-md-7 text-center mx-auto">
+          <h1 class="fw-bolder">Our Blog</h1>
+          <p>Praesent sodales bibendum urna vel aliquam. In pharetra lorem cursus nunc dignissim, nec faucibus lacus
+            laoreet. Sed molestie, velit nec tempor malesuada, lectus nisl euismod magna</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--### Blogs Starts Here ####-->
+
+  <div class="container-fluid big-padding pt-3">
+
+    <div class="container-xl">
+      <div class="row px-5 pt-0">
+        <div class="col-md-6 mb-4">
+          <div class="blog-cover">
+
+            <img src="images/blog/blog-1.png" alt="">
+            <p class="py-3"><span class="text-primary">Organic Agri</span> <span class="text-center px-3">--</span>
+              <span>06 Jan 2023</span></p>
+            <h5 class="fw-bolder">Candiru, turkeyfish javelin platy: trout rohu Cras lobortis sodales velit quis mattis.
+            </h5>
+            <p>Donec eget risus tincidunt, sagittis turpis id, varius erat. Curabitur feugiat diam in commodo dignissim.
+              sapien id laoreet. Sed ac enim et nibh </p>
+          </div>
+        </div>
+
+
+
+        <div class="col-md-6 mb-4">
+          <div class="blog-cover">
+            <img src="images/blog/blog-4.png" alt="">
+            <p class="py-3"><span class="text-primary">Organic Agri</span> <span class="text-center px-3">--</span>
+              <span>06 Jan 2023</span></p>
+            <h5 class="fw-bolder">Bigscale Russian sturgeon leopard danio tarpon peladillo lobortis sodales velit quis
+              mattis. </h5>
+            <p>Donec eget risus tincidunt, sagittis turpis id, varius erat. Curabitur feugiat diam in commodo dignissim.
+              sapien id laoreet. Sed ac enim et nibh </p>
+          </div>
+        </div>
+
+
+       
+
+        <div class="col-md-6 mb-4">
+          <div class="blog-cover">
+            <img src="images/blog/blog-5.png" alt="">
+            <p class="py-3"><span class="text-primary">Organic Agri</span> <span class="text-center px-3">--</span>
+              <span>06 Jan 2023</span></p>
+            <h5 class="fw-bolder">Bigscale Russian sturgeon leopard danio tarpon peladillo lobortis sodales velit quis
+              mattis. </h5>
+            <p>Donec eget risus tincidunt, sagittis turpis id, varius erat. Curabitur feugiat diam in commodo dignissim.
+              sapien id laoreet. Sed ac enim et nibh </p>
+          </div>
+        </div>
+
+       
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
+    integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
+  <link href="{{ url_for('serve_static', filename='blog.js') }}" rel="stylesheet">
+</body>
+
+</html>

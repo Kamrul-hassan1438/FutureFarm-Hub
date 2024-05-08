@@ -1,0 +1,532 @@
+{
+  "intents": [
+    {
+      "tag": "weather_impact",
+      "patterns": [
+        "weather affecting farm?",
+        " impact weather ",
+        " current weather influence"
+      ],
+      "responses": [
+        "The recent rains have delayed our planting schedule."
+      ]
+    },
+    {
+      "tag": "livestock_raising",
+      "patterns": [
+        "What livestock do you raise?",
+        "livestock on your farm?",
+        "Can you tell me about the animals you rear?"
+      ],
+      "responses": [
+        "We raise cattle, chickens, and pigs on our farm."
+      ]
+    },
+    {
+      "tag": "organic_farming",
+      "patterns": [
+        "Organic farming",
+        "Chemical-free agriculture",
+        "Natural cultivation"
+      ],
+      "responses": [
+        "Are you involved in organic farming practices?."
+      ]
+    },
+    {
+      "tag": "irrigation_methods",
+      "patterns": [
+        "Irrigation methods",
+        "Watering techniques",
+        "Drip irrigation"
+      ],
+      "responses": [
+        "We mainly use drip irrigation and pivot systems for watering our crops."
+      ]
+    },
+    {
+      "tag": "crop_suggestion",
+      "patterns": [
+        "crop suggestion",
+        "best crops to grow",
+        "ideal crops for my farm"
+      ],
+      "responses": [
+        "Based on your location and current weather conditions, I would recommend crops such as tomatoes, peppers, and eggplants which thrive in hot weather and can tolerate alkaline soils like yours."
+      ]
+    },
+    {
+      "tag": "crop_suggestion_ph_weather",
+      "patterns": [
+        "crops for pH 7.7 and hot weather",
+        "ideal crops for alkaline soil and hot weather"
+      ],
+      "responses": [
+        "Given your soil pH of 7.7 and the hot summer weather, crops such as tomatoes, peppers, and eggplants would be suitable as they tolerate slightly alkaline soils and thrive in warm conditions."
+      ]
+    },
+    {
+      "tag": "fertilizer_recommendation",
+      "patterns": [
+        "fertilizer recommendation",
+        "best fertilizer for crops",
+        "ideal fertilizer for my soil"
+      ],
+      "responses": [
+        "To support the growth of crops in alkaline soils during hot weather, consider using fertilizers with lower nitrogen content and higher potassium and phosphorus levels. A fertilizer with an N-P-K ratio of 5-10-10 would help promote fruit and flower development."
+      ]
+    },
+    {
+      "tag": "crop_cultivation_info",
+      "patterns": [
+        "crop cultivation information",
+        "how to grow crops",
+        "crop planting guide"
+      ],
+      "responses": [
+        "Ensure adequate irrigation to mitigate the effects of hot weather and maintain soil moisture. Mulching can also help conserve moisture and regulate soil temperature. Plant crops at appropriate spacing and provide shade if necessary to protect them from excessive heat."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_1",
+      "patterns": [
+        "crops for pH 7.0 and hot weather",
+        "ideal crops for neutral pH and hot weather"
+      ],
+      "responses": [
+        "For neutral pH and hot weather, consider crops like corn, melons, and sunflowers. Ensure proper irrigation and mulching to retain soil moisture in the heat."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_2",
+      "patterns": [
+        "crops for pH 6.5 and hot weather",
+        "ideal crops for slightly acidic soil and hot weather"
+      ],
+      "responses": [
+        "With slightly acidic soil and hot weather, crops such as beans, cucumbers, and squash would thrive. Monitor soil moisture closely to prevent drying out."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_3",
+      "patterns": [
+        "crops for pH 8.0 and hot weather",
+        "ideal crops for slightly alkaline soil and hot weather"
+      ],
+      "responses": [
+        "For slightly alkaline soil and hot weather, consider growing okra, sweet potatoes, and peppers. Ensure adequate soil moisture as alkaline soils tend to dry out faster in heat."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_4",
+      "patterns": [
+        "crops for pH 7.0 and rainy weather",
+        "ideal crops for neutral pH and rainy season"
+      ],
+      "responses": [
+        "During rainy seasons with neutral pH, crops such as rice, taro, and water spinach thrive. Implement proper drainage to prevent waterlogging."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_5",
+      "patterns": [
+        "crops for pH 6.5 and rainy weather",
+        "ideal crops for slightly acidic soil and rainy season"
+      ],
+      "responses": [
+        "With slightly acidic soil and rainy weather, consider crops like blueberries, cranberries, and azaleas. Ensure good drainage to prevent waterlogged conditions."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_6",
+      "patterns": [
+        "crops for pH 8.0 and rainy weather",
+        "ideal crops for slightly alkaline soil and rainy season"
+      ],
+      "responses": [
+        "For slightly alkaline soil during rainy weather, crops such as asparagus, cabbage, and cauliflower would do well. Implement raised beds to prevent waterlogging in alkaline soils."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_7",
+      "patterns": [
+        "crops for pH 7.0 and mild weather",
+        "ideal crops for neutral pH and moderate climate"
+      ],
+      "responses": [
+        "With neutral pH and mild weather, crops such as lettuce, kale, and peas thrive. Ensure adequate soil moisture and provide shade during hotter periods."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_8",
+      "patterns": [
+        "crops for pH 6.5 and mild weather",
+        "ideal crops for slightly acidic soil and moderate climate"
+      ],
+      "responses": [
+        "For slightly acidic soil and mild weather, consider crops like apples, cherries, and strawberries. Implement mulching to maintain soil moisture levels."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_9",
+      "patterns": [
+        "crops for pH 8.0 and mild weather",
+        "ideal crops for slightly alkaline soil and moderate climate"
+      ],
+      "responses": [
+        "With slightly alkaline soil and mild weather, crops such as spinach, beets, and carrots would thrive. Ensure consistent soil moisture levels to support crop growth."
+      ]
+    },
+    {
+      "tag": "ph_only_1",
+      "patterns": [
+        "crops for pH 7.0",
+        "ideal crops for neutral pH"
+      ],
+      "responses": [
+        "For neutral pH, consider growing crops such as soybeans, potatoes, and wheat. Ensure proper irrigation and fertilization for optimal growth."
+      ]
+    },
+    {
+      "tag": "ph_only_2",
+      "patterns": [
+        "crops for pH 6.5",
+        "ideal crops for slightly acidic soil"
+      ],
+      "responses": [
+        "With slightly acidic soil, crops like blueberries, raspberries, and rhododendrons thrive. Implement organic matter to improve soil structure."
+      ]
+    },
+    {
+      "tag": "ph_only_3",
+      "patterns": [
+        "crops for pH 8.0",
+        "ideal crops for slightly alkaline soil"
+      ],
+      "responses": [
+        "For slightly alkaline soil, consider crops such as beans, peas, and lettuce. Monitor soil moisture closely as alkaline soils tend to dry out faster."
+      ]
+    },
+    {
+      "tag": "weather_only_1",
+      "patterns": [
+        "crops for hot weather",
+        "ideal crops for hot climate"
+      ],
+      "responses": [
+        "During hot weather, crops such as tomatoes, peppers, and cucumbers thrive. Implement shading and mulching to protect plants from excessive heat."
+      ]
+    },
+    {
+      "tag": "weather_only_2",
+      "patterns": [
+        "crops for rainy weather",
+        "ideal crops for rainy season"
+      ],
+      "responses": [
+        "For rainy weather, crops like rice, taro, and water spinach thrive. Ensure proper drainage to prevent waterlogging."
+      ]
+    },
+    {
+      "tag": "weather_only_3",
+      "patterns": [
+        "crops for mild weather",
+        "ideal crops for moderate climate"
+      ],
+      "responses": [
+        "With mild weather, crops such as lettuce, carrots, and radishes thrive. Implement proper irrigation practices to maintain soil moisture."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_10",
+      "patterns": [
+        "crops for pH 7.0 and dry weather",
+        "ideal crops for neutral pH and dry climate"
+      ],
+      "responses": [
+        "With neutral pH and dry weather, crops such as barley, oats, and chickpeas thrive. Implement drip irrigation to conserve water."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_11",
+      "patterns": [
+        "crops for pH 6.5 and dry weather",
+        "ideal crops for slightly acidic soil and dry climate",
+        "soil PH 6.5"
+      ],
+      "responses": [
+        "For slightly acidic soil and dry weather, consider crops like almonds, apricots, and pistachios. Ensure deep watering to reach the root zone."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_12",
+      "patterns": [
+        "crops for pH 8.0 and dry weather",
+        "ideal crops for slightly alkaline soil and dry climate"
+      ],
+      "responses": [
+        "With slightly alkaline soil and dry weather, crops such as figs, dates, and olives would thrive. Implement mulching to conserve soil moisture."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_13",
+      "patterns": [
+        "crops for pH 7.0 and humid weather",
+        "ideal crops for neutral pH and humid climate"
+      ],
+      "responses": [
+        "During humid weather with neutral pH, crops such as bananas, papayas, and taro thrive. Ensure good airflow to prevent fungal diseases."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_14",
+      "patterns": [
+        "crops for pH 6.5 and humid weather",
+        "ideal crops for slightly acidic soil and humid climate"
+      ],
+      "responses": [
+        "With slightly acidic soil and humid weather, consider crops like ginger, turmeric, and pineapples. Provide adequate drainage to prevent waterlogging."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_15",
+      "patterns": [
+        "crops for pH 8.0 and humid weather",
+        "ideal crops for slightly alkaline soil and humid climate"
+      ],
+      "responses": [
+        "For slightly alkaline soil during humid weather, crops such as mangos, lychees, and guavas would do well. Implement raised beds to improve drainage."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_16",
+      "patterns": [
+        "crops for pH 7.0 and cool weather",
+        "ideal crops for neutral pH and cool climate"
+      ],
+      "responses": [
+        "With neutral pH and cool weather, crops such as cabbage, broccoli, and spinach thrive. Ensure adequate sunlight for optimal growth."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_17",
+      "patterns": [
+        "crops for pH 6.5 and cool weather",
+        "ideal crops for slightly acidic soil and cool climate"
+      ],
+      "responses": [
+        "For slightly acidic soil and cool weather, consider crops like peas, kale, and Brussels sprouts. Provide protection from frost if temperatures drop too low."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_18",
+      "patterns": [
+        "crops for pH 8.0 and cool weather",
+        "ideal crops for slightly alkaline soil and cool climate"
+      ],
+      "responses": [
+        "With slightly alkaline soil and cool weather, crops such as potatoes, carrots, and radishes would thrive. Implement organic matter to improve soil structure."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_19",
+      "patterns": [
+        "crops for pH 7.0 and windy weather",
+        "ideal crops for neutral pH and windy climate"
+      ],
+      "responses": [
+        "During windy weather with neutral pH, crops such as corn, sorghum, and barley thrive. Implement windbreaks to protect plants from damage."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_20",
+      "patterns": [
+        "crops for pH 6.5 and windy weather",
+        "ideal crops for slightly acidic soil and windy climate"
+      ],
+      "responses": [
+        "With slightly acidic soil and windy weather, consider crops like rye, oats, and flax. Ensure sturdy support structures for tall crops."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_21",
+      "patterns": [
+        "crops for pH 8.0 and windy weather",
+        "ideal crops for slightly alkaline soil and windy climate"
+      ],
+      "responses": [
+        "For slightly alkaline soil during windy weather, crops such as onions, garlic, and leeks would do well. Implement proper irrigation to counteract moisture loss."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_22",
+      "patterns": [
+        "crops for pH 7.0 and frosty weather",
+        "ideal crops for neutral pH and frost-prone climate"
+      ],
+      "responses": [
+        "During frosty weather with neutral pH, crops such as winter wheat, barley, and turnips thrive. Implement frost protection measures like row covers or cold frames."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_23",
+      "patterns": [
+        "crops for pH 6.5 and frosty weather",
+        "ideal crops for slightly acidic soil and frost-prone climate"
+      ],
+      "responses": [
+        "With slightly acidic soil and frosty weather, consider crops like cranberries, currants, and gooseberries. Choose frost-resistant varieties."
+      ]
+    },
+    {
+      "tag": "ph_weather_combination_24",
+      "patterns": [
+        "crops for pH 8.0 and frosty weather",
+        "ideal crops for slightly alkaline soil and frost-prone climate"
+      ],
+      "responses": [
+        "For slightly alkaline soil during frosty weather, crops such as parsnips, celery, and Swiss chard would do well. Implement mulching to protect roots from freezing."
+      ]
+    },
+    {
+      "tag": "crop_advice",
+      "patterns": [
+        "crop advice",
+        "tips for growing crops",
+        "crop care advice"
+      ],
+      "responses": [
+        "Ensure proper irrigation to meet the water needs of your crops, especially during dry spells.",
+        "Regularly monitor your crops for signs of pests and diseases, and take appropriate action to control them.",
+        "Implement crop rotation practices to prevent soil depletion and minimize the buildup of pests and diseases.",
+        "Consider intercropping to maximize space and resources while diversifying your crop yields.",
+        "Maintain soil fertility by incorporating organic matter such as compost or manure into the soil.",
+        "Monitor weather forecasts and adjust your planting and harvesting schedules accordingly to optimize crop growth.",
+        "Protect your crops from extreme weather conditions such as frost, hail, or excessive heat by providing appropriate shelter or cover.",
+        "Practice proper weed management to reduce competition for nutrients and water resources.",
+        "Invest in quality seeds or seedlings from reputable sources to ensure healthy and vigorous crop growth.",
+        "Regularly scout your fields for weeds, and remove them promptly to prevent them from competing with your crops for resources."
+      ]
+    },
+    {
+      "tag": "field_preparation",
+      "patterns": [
+        "field preparation",
+        "how to prepare the field",
+        "preparing the field for planting"
+      ],
+      "responses": [
+        "Before planting, clear the field of any debris, rocks, or weeds to provide a clean and uniform surface for planting.",
+        "Plow or till the soil to break up clumps, aerate the soil, and create a smooth seedbed for planting.",
+        "Consider conducting a soil test to determine soil fertility levels and pH, and amend the soil as needed with organic matter or fertilizers.",
+        "Level the field surface to ensure even water distribution and facilitate uniform crop growth.",
+        "Install irrigation systems or prepare irrigation channels to ensure adequate water supply for the crops.",
+        "Create planting rows or beds according to the spacing requirements of the crops you plan to grow.",
+        "Apply pre-emergent herbicides if necessary to prevent weed growth and competition with your crops.",
+        "Incorporate organic mulch into the soil to improve soil structure, retain moisture, and suppress weed growth.",
+        "Consider cover cropping to add nutrients to the soil, suppress weeds, and prevent erosion during fallow periods.",
+        "Monitor weather forecasts and plan field preparation activities accordingly to optimize planting conditions."
+      ]
+    },
+    {
+      "tag": "crop_monitoring",
+      "patterns": [
+        "crop monitoring",
+        "how to monitor crops",
+        "monitoring crop health"
+      ],
+      "responses": [
+        "Regularly inspect your crops for signs of pests, diseases, nutrient deficiencies, or environmental stress.",
+        "Use visual cues such as wilting, discoloration, or abnormal growth patterns to identify potential issues with your crops.",
+        "Utilize pest traps, pheromone traps, or sticky traps to monitor pest populations and detect early signs of infestation.",
+        "Implement scouting routines to systematically survey your fields for pests, diseases, and other crop issues.",
+        "Keep records of crop growth stages, pest and disease occurrences, weather conditions, and management activities to track crop performance over time.",
+        "Utilize remote sensing technologies such as drones or satellite imagery to monitor crop health, detect anomalies, and assess field conditions.",
+        "Monitor soil moisture levels using soil moisture sensors or manual soil sampling to ensure optimal irrigation practices.",
+        "Collect and analyze plant tissue samples periodically to assess nutrient levels and identify potential deficiencies or imbalances.",
+        "Consider using data-driven decision support tools or agricultural apps to streamline crop monitoring tasks and make informed management decisions.",
+        "Consult with agricultural experts, extension agents, or agronomists for guidance on effective crop monitoring strategies and problem-solving."
+      ]
+    },
+    {
+      "tag": "pest_disease_management",
+      "patterns": [
+        "pest and disease management",
+        "controlling pests and diseases",
+        "managing crop pests and diseases"
+      ],
+      "responses": [
+        "Implement Integrated Pest Management (IPM) practices, including cultural, biological, and chemical control methods, to effectively manage pests and diseases.",
+        "Regularly monitor crops for signs of pests, diseases, and beneficial organisms to detect issues early and implement timely interventions.",
+        "Practice crop rotation and diversify plantings to disrupt pest and disease cycles and reduce buildup in the soil.",
+        "Encourage natural enemies of pests by creating habitat, conserving biodiversity, and avoiding broad-spectrum pesticide use.",
+        "Use resistant crop varieties whenever possible to minimize the impact of pests and diseases on crop yields.",
+        "Practice good sanitation in the field by removing crop residues, weeds, and other debris that may harbor pests and diseases.",
+        "Implement physical barriers such as row covers or netting to protect crops from pest damage while minimizing pesticide use.",
+        "Apply pesticides judiciously and in accordance with label instructions, considering factors such as pest thresholds, timing, and environmental impact.",
+        "Rotate pesticide classes to prevent resistance development in pest populations and preserve the efficacy of chemical control measures.",
+        "Keep accurate records of pest and disease occurrences, control measures applied, and their effectiveness to inform future management decisions."
+      ]
+    },
+    {
+      "tag": "climate_resilience",
+      "patterns": [
+        "climate resilience",
+        "adapting to climate change",
+        "building climate resilience in agriculture"
+      ],
+      "responses": [
+        "Select crop varieties and cultivars that are adapted to your local climate conditions, including heat tolerance, drought resistance, and disease resilience.",
+        "Implement water-saving techniques such as drip irrigation, rainwater harvesting, and soil moisture monitoring to optimize water use efficiency in changing climate conditions.",
+        "Utilize cover cropping and mulching practices to conserve soil moisture, suppress weeds, and maintain soil structure, especially during periods of drought or heavy rainfall.",
+        "Practice crop diversification to spread risk and buffer against climate-related stresses such as temperature extremes, erratic rainfall, and pest outbreaks.",
+        "Implement agroforestry practices such as alley cropping and windbreaks to provide shade, reduce wind erosion, and enhance microclimate stability on your farm.",
+        "Adopt conservation tillage and soil conservation practices such as contour plowing and terracing to reduce soil erosion and improve water infiltration in sloping landscapes.",
+        "Monitor climate forecasts and utilize weather data to optimize planting dates, crop selection, and management practices to align with changing climate patterns.",
+        "Invest in infrastructure improvements such as irrigation systems, water storage facilities, and drainage management to enhance resilience to climate-related hazards.",
+        "Participate in farmer networks, extension programs, and climate adaptation initiatives to exchange knowledge, access resources, and collaborate on climate resilience strategies.",
+        "Engage in soil carbon sequestration and carbon farming practices to mitigate greenhouse gas emissions and contribute to climate change mitigation efforts while enhancing soil health."
+      ]
+    },
+    {
+      "tag": "post_harvest_handling_storage",
+      "patterns": [
+        "post-harvest handling and storage",
+        "storing harvested crops",
+        "crop storage practices"
+      ],
+      "responses": [
+        "Harvest crops at the right stage of maturity and handle them carefully to minimize damage and ensure optimal quality.",
+        "Clean and sanitize harvesting tools, containers, and surfaces to prevent contamination and maintain food safety standards.",
+        "Sort and grade harvested crops based on quality attributes such as size, color, and maturity to facilitate storage and marketing.",
+        "Remove field heat from freshly harvested crops promptly to prevent moisture loss and prolong shelf life.",
+        "Implement proper ventilation and airflow in storage facilities to maintain optimal temperature and humidity conditions for different crops.",
+        "Monitor stored crops regularly for signs of spoilage, mold, insect infestation, or other quality issues, and take corrective actions as needed.",
+        "Utilize appropriate packaging materials such as breathable bags, crates, or bins to protect crops from physical damage and maintain quality during storage.",
+        "Implement pest management practices such as fumigation, trapping, or using inert gases to control insect pests and prevent post-harvest losses.",
+        "Rotate stored crops to ensure FIFO (first in, first out) inventory management and minimize the risk of spoilage or deterioration over time.",
+        "Train staff and workers on proper post-harvest handling and storage techniques, including hygiene practices, equipment operation, and pest control measures."
+      ]
+    },
+    {
+      "tag": "soil_health",
+      "patterns": [
+        "soil health",
+        "improving soil fertility",
+        "maintaining soil health"
+      ],
+      "responses": [
+        "Conduct regular soil testing to assess nutrient levels, pH, and other soil properties, and interpret the results to develop tailored soil management plans.",
+        "Based on soil test recommendations, apply appropriate soil amendments such as lime to adjust pH, gypsum to improve soil structure, and compost to enhance organic matter content and nutrient availability.",
+        "Implement cover cropping and green manure practices to add organic matter, fix nitrogen, suppress weeds, and improve soil tilth, structure, and moisture retention.",
+        "Practice soil conservation techniques such as contour plowing, terracing, and buffer strips to prevent erosion, minimize soil loss, and protect water quality.",
+        "Incorporate crop residues and organic matter into the soil through practices such as mulching, composting, and no-till farming to enhance soil fertility, microbial activity, and carbon sequestration.",
+        "Rotate crops to break pest and disease cycles, optimize nutrient utilization, and promote soil health by diversifying root structures and organic inputs.",
+        "Minimize soil disturbance through reduced tillage or conservation tillage practices to preserve soil structure, microbial communities, and organic matter content.",
+        "Utilize cover crops with deep root systems to scavenge nutrients, improve soil aeration, and alleviate compaction in subsoil layers.",
+        "Implement agroforestry systems and alley cropping to integrate trees and perennial crops into agricultural landscapes, enhance biodiversity, and improve soil health and resilience.",
+        "Engage in soil health monitoring and participatory research initiatives to assess the effectiveness of soil management practices, share knowledge, and promote sustainable soil stewardship."
+      ]
+    }
+  ]
+}

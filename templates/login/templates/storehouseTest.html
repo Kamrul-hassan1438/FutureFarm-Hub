@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProfilePage</title>
+    <style>
+        *.container {
+            display: flex;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .left-sidebar {
+            background: #efefef;
+            flex-basis: 10%;
+            /* Adjusted to 10% */
+            position: sticky;
+            top: 70px;
+            height: calc(100vh - 70px);
+            overflow-y: auto;
+            padding: 20px;
+            border-radius: 4px;
+            color: #626262;
+        }
+        @media screen and (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left-sidebar {
+                flex-basis: 100%;
+                /* Adjusted to 100% */
+                position: relative;
+                top: 0;
+                height: auto;
+                margin-bottom: 10px;
+                /* Added margin bottom */
+            }
+
+            .main-content {
+                width: 90%;
+            }
+        }
+
+
+        .main-content {
+            background: #c1e1c1;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 90%;
+            /* Adjusted to 90% */
+        }
+
+
+        .left-sidebar img {
+            width: 20px;
+            cursor: pointer;
+        }
+
+        .StoreHouse {
+            display: inline-block;
+            margin: 10px;
+            vertical-align: top;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 200px;
+            max-height: 200px;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .StoreHouse img {
+            width: 40px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border-radius: 50%;
+        }
+
+        .StoreHouse-info {
+            margin-bottom: 10px;
+        }
+
+        .StoreHouse-rentPrize {
+            font-weight: bold;
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .cart-item-box {
+            display: inline-block;
+            margin: 10px;
+            vertical-align: top;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 200px;
+            max-height: 200px;
+        }
+
+        .booking-item-box {
+            display: inline-block;
+            margin: 10px;
+            vertical-align: top;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 200px;
+            max-height: 200px;
+        }
+
+        button {
+            border: none;
+            padding: 8px 16px;
+            font-size: 10px;
+            position: relative;
+            background: transparent;
+            color: #27ae60;;
+            text-transform: uppercase;
+            border: 3px solid #27ae60;;
+            cursor: pointer;
+            transition: all 0.7s;
+            overflow: hidden;
+            border-radius: 100px;
+        }
+
+        button:hover {
+            color: #000;
+        }
+
+        span {
+            transition: all 0.7s;
+            z-index: -1;
+        }
+
+        button .first {
+            content: "";
+            position: absolute;
+            right: 100%;
+            top: 0;
+            width: 25%;
+            height: 100%;
+            background: #27ae60;;
+        }
+
+        button:hover .first {
+            top: 0;
+            right: 0;
+        }
+
+        button .second {
+            content: "";
+            position: absolute;
+            left: 25%;
+            top: -100%;
+            height: 100%;
+            width: 25%;
+            background: #27ae60;;
+        }
+
+        button:hover .second {
+            top: 0;
+            left: 50%;
+        }
+
+        button .third {
+            content: "";
+            position: absolute;
+            left: 50%;
+            height: 100%;
+            top: 100%;
+            width: 25%;
+            background: #27ae60;;
+        }
+
+        button:hover .third {
+            top: 0;
+            left: 25%;
+        }
+
+        button .fourth {
+            content: "";
+            position: absolute;
+            left: 100%;
+            top: 0;
+            height: 100%;
+            width: 25%;
+            background: #27ae60;;
+        }
+
+        button:hover .fourth {
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- left-sidebar -->
+        <div class="left-sidebar" id="leftSidebar">
+            <div class="sidebar-buttons">
+                <div style="margin-bottom: 10px;">
+                    <button class="sidebar-button" onclick="toggleCart()">
+                        <img src="../../../static/profiles/images/shopping-cart_2838838.png">
+                        <span>Cart
+                            <span class="first"></span>
+                            <span class="second"></span>
+                            <span class="third"></span>
+                            <span class="fourth"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="sidebar-buttons">
+                <div style="margin-bottom: 10px;">
+                    <button class="sidebar-button" onclick="toggleBookings()">
+                        <img src="../../../static/profiles/images/shopping-cart_2838838.png">
+                        <span>Books
+                            <span class="first"></span>
+                            <span class="second"></span>
+                            <span class="third"></span>
+                            <span class="fourth"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div id="cartContent"></div>
+            <div id="BookingsContent"></div>
+
+        </div>
+        <div class="main-content" id="mainContent">
+            <!-- Main content -->
+            <div class="StoreHouse" id="storehouse1">
+                <img src="apple-red-png.png" alt="Apple">
+                <div class="StoreHouse-info">
+                    <span class="StoreHouse-name">Apple</span><br>
+                    <span class="StoreHouse-region">Chanpdur</span><br>
+                </div>
+                <div class="StoreHouse-rentPrize">200</div>
+                <button class="product-button" onclick="openModal('storehouse1')">View Details</button>
+            </div>
+
+            <div class="StoreHouse" id="storehouse2">
+                <img src="images/banana.png" alt="Orange">
+                <div class="StoreHouse-info">
+                    <span class="StoreHouse-name">Orange</span><br>
+                    <span class="StoreHouse-region">XYZ</span><br>
+                </div>
+                <div class="StoreHouse-rentPrize">150</div>
+                <button class="product-button" onclick="openModal('storehouse2')">View Details</button>
+            </div>
+            <!-- Add more StoreHouse divs as needed -->
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Storage Details</h2>
+            <div id="storehouseInfo"></div>
+            <p><strong>Rent Cost:</strong> <span id="calculatedRentCost"></span></p>
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" name="startDate"><br><br>
+
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" name="endDate"><br><br>
+
+            <button onclick="calculateRent()">Calculate Rent</button>
+            <button onclick="addToCart()">Add to Cart</button>
+            <div id="paymentMethodSelection">
+                <div>
+                    <input type="radio" id="bankTransfer" name="paymentMethod" value="bankTransfer"
+                        onchange="displayPaymentInstructions()">
+                    <label for="bankTransfer">Banking</label>
+                </div>
+                <div>
+                    <input type="radio" id="mobileBanking" name="paymentMethod" value="mobileBanking"
+                        onchange="displayPaymentInstructions()">
+                    <label for="mobileBanking">Online Banking</label>
+                </div>
+            </div>
+
+            <div id="bankTransferInstructions" style="display: none;">
+                <p>Bank ID: <input type="text" id="bankId"></p>
+                <p>Password: <input type="password" id="bankPassword"></p>
+                <button id="bankOrderButton" class="product-button" style="display: none;" onclick="addBooking()">Book
+                    Now</button>
+            </div>
+
+            <div id="mobileBankingInstructions" style="display: none;">
+                <p>Number: <input type="text" id="mobileNumber"></p>
+                <p>Password: <input type="password" id="mobilePassword"></p>
+                <button id="mobileBankingOrderButton" class="product-button" style="display: none;"
+                    onclick="addBooking()">Book
+                    Now</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var rentCostInput = document.getElementById("rentCost");
+        var startDateInput = document.getElementById("startDate");
+        var endDateInput = document.getElementById("endDate");
+
+        function openModal(storehouseId) {
+            var storehouse = document.getElementById(storehouseId);
+            var name = storehouse.querySelector(".StoreHouse-name").textContent;
+            var region = storehouse.querySelector(".StoreHouse-region").textContent;
+            var rentPrize = parseFloat(storehouse.querySelector(".StoreHouse-rentPrize").textContent); // Parse float
+            document.getElementById("storehouseInfo").innerHTML = "<p>Name: " + name + "</p><p>Region: " + region + "</p><p>Rent Prize: " + rentPrize + "</p>";
+
+            // Store rent prize in a data attribute
+            modal.setAttribute("data-rent-prize", rentPrize);
+            modal.setAttribute("data-storehouse-id", storehouseId);
+
+            modal.style.display = "block";
+        }
+
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+        function calculateRent() {
+            var rentPrize = parseFloat(modal.getAttribute("data-rent-prize")); // Fetch rent prize from data attribute
+            var startDate = new Date(document.getElementById("startDate").value);
+            var endDate = new Date(document.getElementById("endDate").value);
+            var oneDay = 24 * 60 * 60 * 1000;
+            var diffDays = Math.round(Math.abs((endDate - startDate) / oneDay));
+            var rentCost = rentPrize * diffDays;
+            document.getElementById("calculatedRentCost").innerText = rentCost.toFixed(2);
+        }
+
+
+
+        function displayPaymentInstructions() {
+            var paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+            var bankTransferInstructions = document.getElementById('bankTransferInstructions');
+            var mobileBankingInstructions = document.getElementById('mobileBankingInstructions');
+            var bankOrderButton = document.getElementById('bankOrderButton');
+            var mobileBankingOrderButton = document.getElementById('mobileBankingOrderButton');
+
+            if (paymentMethod === 'bankTransfer') {
+                bankTransferInstructions.style.display = 'block';
+                mobileBankingInstructions.style.display = 'none';
+                bankOrderButton.style.display = 'block';
+                mobileBankingOrderButton.style.display = 'none';
+            } else if (paymentMethod === 'mobileBanking') {
+                bankTransferInstructions.style.display = 'none';
+                mobileBankingInstructions.style.display = 'block';
+                bankOrderButton.style.display = 'none';
+                mobileBankingOrderButton.style.display = 'block';
+            } else {
+                bankTransferInstructions.style.display = 'none';
+                mobileBankingInstructions.style.display = 'none';
+                bankOrderButton.style.display = 'none';
+                mobileBankingOrderButton.style.display = 'none';
+            }
+        }
+        function addToCart() {
+            var storehouseId = modal.getAttribute("data-storehouse-id");
+            var storehouse = document.getElementById(storehouseId);
+            var name = storehouse.querySelector(".StoreHouse-name").textContent;
+            var region = storehouse.querySelector(".StoreHouse-region").textContent;
+            var rentPrize = parseFloat(storehouse.querySelector(".StoreHouse-rentPrize").textContent);
+
+            // Create a new div to represent the storehouse in the cart
+            var cartItem = document.createElement('div');
+            cartItem.classList.add('cart-item');
+            cartItem.className = "cart-item-box";
+            cartItem.innerHTML = `
+                <p>Name: ${name}</p>
+                <p>Region: ${region}</p>
+                <p>Rent Prize: ${rentPrize}</p>
+                <button class="view-details-button" onclick="openModal('${storehouseId}')">View Details</button>
+            `;
+
+            // Append the cart item to the cart content
+            var cartContent = document.getElementById('cartContent');
+            cartContent.appendChild(cartItem);
+
+            // Show the cart content
+            toggleCart();
+
+            // Close the modal after adding to cart
+            closeModal();
+        }
+
+        function toggleCart() {
+            var cartContent = document.getElementById('cartContent');
+            var cartButton = document.querySelector('.sidebar-button');
+
+            if (cartContent.style.display === 'block') {
+                cartContent.style.display = 'none';
+            } else {
+                cartContent.style.display = 'block';
+            }
+
+            // Hide cart content when clicking outside of it
+            document.addEventListener('click', function (event) {
+                var isClickInsideCart = cartButton.contains(event.target) || cartContent.contains(event.target);
+                if (!isClickInsideCart) {
+                    cartContent.style.display = 'none';
+                }
+            });
+        }
+        function addBooking() {
+            var storehouseId = modal.getAttribute("data-storehouse-id");
+            var storehouse = document.getElementById(storehouseId);
+            var name = storehouse.querySelector(".StoreHouse-name").textContent;
+            var region = storehouse.querySelector(".StoreHouse-region").textContent;
+            var startDate = new Date(document.getElementById("startDate").value);
+            var endDate = new Date(document.getElementById("endDate").value);
+            var today = new Date();
+
+            // Create a new div to represent the booking
+            var bookingItem = document.createElement('div');
+            bookingItem.classList.add('booking-item');
+            bookingItem.classList.add('booking-item-box'); // Add the booking-item-box class
+            bookingItem.innerHTML = `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Region:</strong> ${region}</p>
+        <p><strong>Start Date:</strong> ${startDate.toLocaleDateString()}</p>
+        <p><strong>End Date:</strong> ${endDate.toLocaleDateString()}</p>
+    `;
+
+            // Check if today's date is greater than or equal to the end date
+            if (today >= endDate) {
+                // Create the "Done" button
+                var doneButton = document.createElement('button');
+                doneButton.textContent = 'Done';
+                doneButton.onclick = function () {
+                    removeBooking(bookingItem);
+                };
+
+                // Append the "Done" button to the booking item
+                bookingItem.appendChild(doneButton);
+            }
+
+            // Append the booking item to the bookings content
+            var bookingsContent = document.getElementById('BookingsContent');
+            bookingsContent.appendChild(bookingItem);
+
+            // Close the modal after adding the booking
+            closeModal();
+        }
+
+
+
+        function toggleBookings() {
+            var bookingsContent = document.getElementById('BookingsContent');
+            var bookingsButton = document.querySelector('.bookings-button');
+
+            if (bookingsContent.style.display === 'block') {
+                bookingsContent.style.display = 'none';
+            } else {
+                bookingsContent.style.display = 'block';
+            }
+
+            // Hide bookings content when clicking outside of it
+            function toggleBookings() {
+                var bookingsContent = document.getElementById('BookingsContent');
+                var isBookingsVisible = window.getComputedStyle(bookingsContent).display !== 'none';
+
+                if (isBookingsVisible) {
+                    bookingsContent.style.display = 'none';
+                } else {
+                    bookingsContent.style.display = 'block';
+                }
+            }
+        }
+
+        function removeBooking(bookingItem) {
+            // Remove the booking item from the bookings content
+            bookingItem.remove();
+        }
+    </script>
+</body>
+
+</html>

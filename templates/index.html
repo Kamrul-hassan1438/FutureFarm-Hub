@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>FutureFarm Hub</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" class="circular-img" href="{{ url_for('static', filename='img/favicon.png') }}">
+
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('serve_static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('serve_static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('serve_static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('serve_static', filename='vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('serve_static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('serve_static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('serve_static', filename='css/style.css') }}" rel="stylesheet">
+
+
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-transparent">
+    <div class="container d-flex align-items-center justify-content-between position-relative">
+
+      <div class="logo">
+
+        <h1 class="text-light"><a href="/"><span><img src="../../../static/profiles/img/Logoimg.jpeg" alt=""
+                class="img-fluid"></span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About Us</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+
+          <li class="nav-link scrollto"><a href="/next_template">Login</a></li>
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container" data-aos="fade-up">
+      <h1>Welcome to the FutureFarm Hub</h1>
+      <h2>We are the team of NOOBs </h2>
+      <a href="#about" class="btn-get-started scrollto"><i class="bx bx-chevrons-down"></i></a>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="content col-xl-5 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="content">
+              <h3>আমাদের সম্পর্কে</h3>
+              <p>
+                ABOUT US
+              </p>
+              <a href="#" class="about-btn">About us <i class="bx bx-chevron-right"></i></a>
+            </div>
+          </div>
+          <div class="col-xl-7 d-flex align-items-stretch">
+            <div class="icon-boxes d-flex flex-column justify-content-center">
+              <div class="row">
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+                  <i class="bx bx-receipt"></i>
+                  <h4>Welcome to FutureFarm Hub</h4>
+                  <p>your comprehensive platform revolutionizing the agricultural landscape. At FutureFarm Hub, we're passionate about fostering connections and empowering farmers, laborers, and agricultural enthusiasts alike.</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+                  <i class="bx bx-cube-alt"></i>
+                  <h4>Our mission is simple:</h4>
+                  <p> to create a dynamic marketplace where individuals can seamlessly hire skilled labor, trade high-quality crops, and stay updated on the latest agricultural advancements</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                  <i class="bx bx-images"></i>
+                  <h4>Interface</h4>
+                  <p>you can effortlessly post listings, browse available services, and connect with like-minded individuals who share your passion for farming and agriculture.
+                  </p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+                  <i class="bx bx-shield"></i>
+                  <h4>Join</h4>
+                  <p>Join us in shaping the future of farming. Together, let's cultivate success, one harvest at a time.
+                    p>
+                </div>
+              </div>
+            </div><!-- End .content-->
+          </div>
+        </div>
+      </div>
+    </section><!-- End About Section -->
+
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-in" data-aos-delay="100">
+          <h2>Our Features</h2>
+          <p>These are the Features </p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4 class="title"><a href=""> Direct Marketing</a></h4>
+              <img src="../static/img/buyer.jpg" class="img-fluid" alt="">
+              <p class="description">You can identify yourself as a buyer</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4 class="title"><a href="">Sell</a></h4>
+              <img src="static/img/seller.jpg" class="img-fluid" alt="">
+              <p class="description">You can identify yourself as a seller</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4 class="title"><a href="">Labour</a></h4>
+              <img src="static/img/worker.avif" class="img-fluid" alt="">
+              <p class="description">You can identify yourself as a labour</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon"><i class="bx bx-world"></i></div>
+              <h4 class="title"><a href="">Administrator</a></h4>
+              <img src="static/img/administration.jpg" class="img-fluid" alt="">
+              <p class="description">You can identify yourself as a administrator</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts section-bg">
+      <div class="container">
+        <div class="row no-gutters">
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+              <i class="bi bi-person-lines-fill"></i>
+              <span data-purecounter-start="0" data-purecounter-end="{{ farmer_count }}" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p><strong>Farmer</strong></p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+              <i class="bi bi-person-lines-fill"></i>
+              <span data-purecounter-start="0" data-purecounter-end="{{ laborer_count }}" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p><strong>Laborer</strong></p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+              <i class="bi bi-person-lines-fill"></i>
+              <span data-purecounter-start="0" data-purecounter-end="{{ buyer_count }}" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p><strong>Buyer</strong></p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+              <i class="bi bi-person-lines-fill"></i>
+              <span data-purecounter-start="0" data-purecounter-end="{{ admin_count }}" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p><strong>Regional Admin</strong> <br>Agriculture consultant</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- End Counts Section -->
+
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-in" data-aos-delay="100">
+          <h2>Team Allah Vorosha</h2>
+          <p></p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="member" data-aos="fade-up">
+              <div class="pic"><img src="static\img\team\Member_1.jpg" class="img-fluid" alt="">
+              </div>
+              <div class="member-info">
+                <h4>kamrul Hassan</h4>
+                <span>ToTo company Manager</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href="https://www.facebook.com/kamrul7g" target="_blank"><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/kamrul.hassan.02/" target="_blank"><i
+                      class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="member" data-aos="fade-up" data-aos-delay="150">
+              <div class="pic"><img src="static\img\team\Member_2.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Molla Md Sabit</h4>
+                <span>IELTS score 0.2</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href="https://www.facebook.com/sabit.molla.92" target="_blank"><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/sabitmolla___12/" target="_blank"><i
+                      class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="member" data-aos="fade-up" data-aos-delay="300">
+              <div class="pic"><img src="static\img\team\Member_3.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Mohidur Rahman </h4>
+                <span>CTO</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href="https://www.facebook.com/md.mohidur.rahman.1150" target="_blank"><i
+                      class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/xorrogaming/" target="_blank"><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="info-box mb-4">
+              <i class="bx bx-map"></i>
+              <h3>Our Address</h3>
+              <p>United City, Madani Ave, Dhaka 1212</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="bx bx-envelope"></i>
+              <h3>Email Us</h3>
+              <p>contact@bscse.uiu.ac.bd</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="bx bx-phone-call"></i>
+              <h3>Call Us</h3>
+              <p>01********</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6 ">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.5821981175545!2d90.44713507479342!3d23.797887786952725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7d8042caf2d%3A0x686fa3e360361ddf!2sUnited%20International%20University!5e0!3m2!1sen!2sbd!4v1707371963589!5m2!1sen!2sbd"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+          <div class="col-lg-6">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-info">
+              <h3>Team Allah Vorosha</h3>
+              <p class="pb-3"><em>Nothing to say</em></p>
+              <p>
+                United City , Madani Ave <br>
+                Dhaka , Bangladesh <br>
+                <br>
+                <strong>Phone:</strong> +880 **********<br>
+                <strong>Email:</strong> info@bscse.uiu.ac.bd<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="https://www.facebook.com/uiuinfo" target="_blank" class="facebook" title="FaceBook"><i
+                    class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram" title="Instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="linkedin" title="Linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#header">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/Vission">Vision Mission Goals</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service*</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> Labour hire</li>
+              <li><i class="bx bx-chevron-right"></i> Direct Marketing</li>
+              <li><i class="bx bx-chevron-right"></i> Communication</li>
+              <li><i class="bx bx-chevron-right"></i> Suggestion</li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our *******</h4>
+            <p></p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Allah Vorosha</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+  <script src="{{ url_for('serve_static', filename='vendor/purecounter/purecounter_vanilla.js') }}"></script>
+  <script src="{{ url_for('serve_static', filename='vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('serve_static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('serve_static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('serve_static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('serve_static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ url_for('serve_static', filename='vendor/php-email-form/validate.js') }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('serve_static', filename='js/main.js') }}"></script>
+
+
+</body>
+
+</html>

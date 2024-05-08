@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="shortcut icon" href="static/img/img/favicon.png">
+	<meta name="keywords" content="">
+	<meta charset="UTF-8">
+	<title>FutureFarm Hub</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+	<!--
+			CSS
+			============================================= -->
+
+	<link href="{{ url_for('serve_static', filename='search_laborer/css/font-awesome.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('serve_static', filename='search_laborer/css/bootstrap.css') }}" rel="stylesheet">
+
+
+	<link href="{{ url_for('serve_static', filename='search_laborer/css/main.css') }}" rel="stylesheet">
+	<link rel="stylesheet" href="{{ url_for('serve_static', filename='profiles/css/style.css') }}">
+</head>
+
+</head>
+
+<body>
+
+
+
+	<!-- start banner Area -->
+	<section class="banner-area relative" id="home">
+		<!--<div class="overlay overlay-bg"></div>-->
+		<div class="container">
+
+			<div class="banner-content col-lg-12">
+				<h1 class="text-white">
+					<span>1500+</span>
+				</h1>
+				<form class="serach-form-area" id="search-form">
+					<div class="row justify-content-center form-wrap">
+						<div class="col-lg-4 form-cols">
+							<input type="text" class="form-control" name="search" id="search-input"
+								placeholder="Enter region">
+						</div>
+						<div class="col-lg-2 form-cols">
+							<button type="button" class="btn btn-info" onclick="searchLaborers()">
+								<span class="lnr lnr-magnifier"></span> Search
+							</button>
+							<input type="hidden" id="farmerID" value="{{ FarmerID }}">
+						</div>
+					</div>
+				</form>
+				<p style="text-align: center;" class="text-white">Find Your Desired Laborer</p>
+			</div>
+
+		</div>
+	</section>
+	<!-- End banner Area -->
+
+
+
+	<!-- Display search results here -->
+	<section class="post-area section-gap">
+		<div class="container" id="search-results">
+
+			<div class="col-lg-8 post-list">
+				<ul class="cat-list">
+					<li><a href="#">Recent</a></li>
+					<li><a href="#">Full Time</a></li>
+					<li><a href="#">part Time</a></li>
+				</ul>
+			</div>
+
+		</div>
+	</section>
+
+
+	<script src="{{ url_for('serve_static', filename='search_laborer/js/vendor/jquery-2.2.4.min.js') }}"></script>
+	<script src="{{ url_for('serve_static', filename='search_laborer/js/main.js') }}"></script>
+
+</body>
+
+</html>

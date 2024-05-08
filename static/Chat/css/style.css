@@ -1,0 +1,319 @@
+
+/* Basic styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #132e24;
+    padding: 20px;
+    background: linear-gradient(rgba(76, 236, 129, 0.808), rgba(38, 233, 103, 0.2)), url("../../img/field5.jpg") center center no-repeat;
+    
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Center vertically */
+    align-items: center;
+    height: 100vh;
+
+}
+
+header {
+    width: 100%;
+    height: 3%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+.User_D{
+    text-align: left;
+}
+
+/* Add CSS for the logout button */
+.logoutButton {
+    position: absolute;
+    transform: translateY(-50%);
+    right: 10px;
+    /* Adjust this value for the desired position */
+    padding: 8px 16px;
+    background-color: #FF0000;
+    /* Red color for logout button */
+    border: none;
+    border-radius: 4px;
+    color: #FFFFFF;
+    /* White text color */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: right;
+}
+
+.logoutButton:hover {
+    background-color: #FF3333;
+    /* Darker red color on hover */
+}
+
+
+.container {
+    width: 95%;
+    /* Set maximum width for the container */
+    margin: auto;
+    /* Center the container horizontally */
+    padding: 20px;
+    background: linear-gradient(rgba(76, 236, 129, 0.808), rgba(38, 233, 103, 0.2)), url("../../img/field4.jpg") center center no-repeat;
+    
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Center vertically */
+    align-items: center;
+    /* Center horizontally */
+    height: 90vh;
+    /* Adjust height as needed */
+}
+
+.search-container {
+    width: 100%;
+    /* Make search bar full width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    /* Limit the search bar width */
+    margin: 5px auto;
+    /* Center the search bar horizontally */
+    margin-bottom: 20px;
+}
+
+
+#searchInput {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+#searchButton {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#searchButton:hover {
+    background-color: #45a049;
+}
+
+.user-list {
+    width: 90%;
+    /* Make user list full width */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.user-card {
+    width: calc(50% - 20px);
+    /* Adjust width as needed */
+    margin: 10px;
+    background-color: #a9cbab;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(135, 165, 178, 0.1);
+    overflow: hidden;
+    text-align: center;
+
+}
+
+/*
+.user-card::before {
+    content: "";
+    width: 104%;
+    height: 102%;
+    border-radius: 8px;
+    background-image: linear-gradient(90deg, #85dccb, #3ab674, #206a5d);
+    position: absolute;
+    z-index: -1;
+    top: -1%;
+    left: -2%;
+    animation: spin 3.5s linear infinite;
+    
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}*/
+
+
+.user-details {
+    padding: 20px;
+}
+
+.user-details h3 {
+    margin: 0;
+    color: #333;
+    font-weight: bold;
+}
+
+.user-details p {
+    margin: 5px 0;
+    color: #777;
+
+
+}
+
+.user-actions {
+    text-align: center;
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+
+.chat-box {
+    width: 90%;
+    /* Adjust chat box width */
+    text-align: right;
+    display: none;
+    /* Initially hide the chat box */
+    margin: 0 auto;
+
+}
+
+/* Chat box styling */
+.chat-box {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 300px;
+    /* Adjust as needed */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.chat-header {
+    background-color: #4d7862;
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.chat-inputs {
+    text-align: center;
+}
+
+.messageInput {
+    width: 60%;
+    /* Adjust the width of the message input field */
+    padding: 8px 16px;
+    border: 1px solid #9e7f7f;
+    border-radius: 4px;
+    outline: none;
+    margin-bottom: 10px;
+
+}
+
+.sendButton {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sendButton:hover {
+    background-color: #45a049;
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.messages {
+    padding: 10px;
+    list-style-type: none;
+    margin: 0;
+    text-align: left
+}
+
+.messages li {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #e2d2d2;
+    word-wrap: break-word;
+}
+
+/* Style for the sender's message */
+.messages li.sent {
+    background-color: #DCF8C6;
+}
+
+/* Style for the received message */
+.messages li.received {
+    background-color: #EAEAEA;
+}
+
+.toggleButton {
+    padding: 8px 16px;
+    padding-bottom: 10px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.toggleButton:hover {
+    background-color: #45a049;
+}
+
+/* Style for table header and table cells */
+th,
+td {
+    background-color: #f2f2f2;
+    /* Same background color for both */
+    padding: 8px;
+    /* Add padding to make it consistent */
+    text-align: center;
+    /* Align text to the left */
+}
+
+/* Style for table header only */
+th {
+    background-color: #3c1041;
+    color: #e5dddd;
+    /* Add color to the header text */
+}
+
+/* CSS for chat button with new message notification */
+.startConversationButton.has-new-message {
+    /* Define your styles here */
+    background-color: #ff0000;
+    /* Change background color to red */
+    color: #ffffff;
+    /* Change text color to white */
+    /* Add any other styles to indicate new messages */
+}

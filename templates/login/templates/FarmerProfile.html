@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureFarm Hub</title>
+    <link rel="icon" type="image/x-icon" class="circular-img"
+        href="{{ url_for('static', filename='img/favicon.png') }}">
+    <link href="{{ url_for('serve_static', filename='profiles/css/styles.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('serve_static', filename='profiles/css/style.css') }}">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="/"><!--Add home link-->
+                <img src="../../../static/profiles/img/Logoimg.jpeg" alt="Logo" class="logo">
+            </a>
+            <ul>
+                <li><a href="#Chat"><img src="../../../static/profiles/img/chatbot.png" title="Chat Bot"></a></li>
+                <li><a href="https://mail.google.com" target="_blank"><img
+                            src="../../../static/profiles/img/notification-bell.png" title="Notification"></a></li>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="search-box">
+                <img src="../../../static/profiles/img/search.png">
+                <input type="text" id="searchInput" placeholder="Search">
+            </div>
+
+
+            <div class="nav-user-icon" id="userDropdown">
+                <img id="profilePic" src="data:image/jpeg;base64,{{ image }}">
+                <span id="userName" class="user-name" onclick="toggleDropdown()">{{ farmer['Name'] }}</span>
+                <span class="dropdown-icon" id="userDropdown" id="dropdown-icon" onclick="toggleDropdown()">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 0 32 40" version="1.1" x="0px" y="0px">
+                        <title>Dropdown</title>
+                        <desc>Created with Sketch.</desc>
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <path
+                                d="M16.5,16.6829222 L19.3492086,14.2407434 C19.7685345,13.8813212 20.3998345,13.9298828 20.7592566,14.3492086 C21.1186788,14.7685345 21.0701172,15.3998345 20.6507914,15.7592566 L17.1507914,18.7592566 C16.7763016,19.0802478 16.2236984,19.0802478 15.8492086,18.7592566 L12.3492086,15.7592566 C11.9298828,15.3998345 11.8813212,14.7685345 12.2407434,14.3492086 C12.6001655,13.9298828 13.2314655,13.8813212 13.6507914,14.2407434 L16.5,16.6829222 Z M16.5,26.5 C10.7010101,26.5 6,21.7989899 6,16 C6,10.2010101 10.7010101,5.5 16.5,5.5 C22.2989899,5.5 27,10.2010101 27,16 C27,21.7989899 22.2989899,26.5 16.5,26.5 Z M16.5,24.5 C21.1944204,24.5 25,20.6944204 25,16 C25,11.3055796 21.1944204,7.5 16.5,7.5 C11.8055796,7.5 8,11.3055796 8,16 C8,20.6944204 11.8055796,24.5 16.5,24.5 Z"
+                                fill="#000000" fill-rule="nonzero" />
+                        </g><text x="0" y="47" fill="#000000" font-size="5px" font-weight="bold"
+                            font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Yurii
+                            Harmash</text><text x="0" y="52" fill="#000000" font-size="5px" font-weight="bold"
+                            font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun
+                            Project</text>
+                    </svg>
+                </span>
+                <div id="dropdownContent" class="dropdown-content">
+                    <form id="logoutForm" action="/logout" method="POST">
+                        <button type="submit" class="signoutBtn">
+                            <b>Log Out</b>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- left-sidebar -->
+        <div class="left-sidebar" id="leftSidebar">
+            <div class="imp-links">
+                <a href="/load_marketplace" id="marketplace-link">
+                    <img src="../../../static/profiles/img/marketplace.png" alt="Marketplace">Marketplace
+                </a>
+
+                <a href="#" onclick="search_friend()"><img src="../../../static/profiles/img/friends.png">Friends</a>
+                <a href="/load_searchlaborer" id="search-link"><img src="../../../static/profiles/img/Labour.png">Labour
+                    Hire</a>
+                <a href="#" id="Store_House"><img src="../../../static/profiles/img/warehouse.png">Store House</a>
+                <a href="/load_Chat" id="Chat-link"><img src="../../../static/profiles/img/chat.png">Conversation</a>
+                <a href="#" onclick="toggleUpdateOptions()"> <img
+                        src="../../../static/profiles/img/information.png">Update Your
+                    Information</a>
+            </div>
+            <div id="updateOptions" style="display: none;">
+                <div>
+                    <p type="hidden"> <input type="hidden" id="FarmerID" value="{{ farmer['FarmerID'] }}"></p>
+                    <p type="hidden"> <input type="hidden" id="UserID" value="{{ farmer['UserID'] }}"></p>
+                    <p>Region: <input type="text" id="regionInput" value="{{ farmer['Region_ID'] }}"></p>
+                    <p>Name: <input type="text" id="nameInput" value="{{ farmer['Name'] }}"></p>
+                    <p>BIO: <input type="text" id="BIO" value="{{ farmer['BIO'] }}"></p>
+                    <p>Email: <input type="text" id="emailInput" value="{{ farmer['Email'] }}"></p>
+                    <p>Contact: <input type="text" id="contactInput" value="{{ farmer['Contact'] }}"></p>
+                    <p>Bank ID: <input type="text" id="bankIDInput" value="{{ farmer['BankId'] }}"></p>
+                    <p>Frame Size: <input type="text" id="frameSizeInput" value="{{ farmer['Farm_Size'] }}"></p>
+                    <p>Online Payment Number: <input type="text" id="onlinePaymentInput"
+                            value="{{ farmer['OnlinePaymentNumber'] }}"></p>
+
+                    <form id="uploadForm" enctype="multipart/form-data">
+                        <p>Profile Picture: <input type="file" id="imageInput" accept="image/*"></p>
+                    </form>
+
+                </div>
+                <button onclick="updateChanges()" class="upgrade">Update</button>
+                <button onclick="cancelChanges()" class="cancel">Cancel</button>
+            </div>
+
+
+        </div>
+
+
+
+
+        <!--main-sidebar-->
+        <div class="main-content" id="main-content">
+            <iframe src="/blog" width="100%" height="100%" style="border:none;"></iframe>
+        </div>
+
+
+        <!-- right-sidebar -->
+        <div class="right-sidebar" id="right-sidebar">
+            <div class="sidebar-title">
+                <h4>Seminar</h4><img class="Seminar" src="../../../static/profiles/img/Seminar.png" alt="Seminar"
+                    id="seminarButton">
+            </div>
+
+
+
+            <!-- Modal -->
+            <div id="seminarModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2 id="modalSpeakerName"></h2>
+                    <p id="modalDate"></p>
+                    <p id="modalLocation"></p>
+                    <p id="modalTime"></p>
+                    <p id="modalDescription"></p>
+                    <!-- Add an img tag for the seminar image -->
+                    <img id="modalImage" src=""  alt="Seminar Image" style="width: 200px;height:250px;">
+                </div>
+            </div>
+
+
+
+
+            <div class="centered-table" id="tableContainer" style="display: none;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Add Friend</th>
+                            <th>View Profile</th>
+                        </tr>
+                    </thead>
+                    <tbody id="search-results">
+                        <!-- Table body content will be added dynamically -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="container2">
+                <div class="chatbox" id="Chat" class="Chat">
+                    <div class="chatbox__support">
+                        <div class="chatbox__header">
+                            <div class="chatbox__image--header">
+                                <img src="../../../static/profiles/img/chatbot.png" alt="Logo" class="logo">
+                            </div>
+                            <div class="chatbox__content--header">
+                                <h4 class="chatbox__heading--header">Chat support</h4>
+                                <p class="chatbox__description--header">Hi.My name is AgronomoBot.How can I help you?
+                                </p>
+                            </div>
+                        </div>
+                        <div class="chatbox__messages">
+                            <div></div>
+                        </div>
+                        <div class="chatbox__footer">
+                            <input type="text" placeholder="Write a message...">
+                            <button class="chatbox__send--footer send__button">Send</button>
+                        </div>
+                    </div>
+                    <div class="chatbox__button">
+                        <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-messenger" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 7.76C0 3.301 3.493 0 8 0s8 3.301 8 7.76-3.493 7.76-8 7.76c-.81 0-1.586-.107-2.316-.307a.64.64 0 0 0-.427.03l-1.588.702a.64.64 0 0 1-.898-.566l-.044-1.423a.64.64 0 0 0-.215-.456C.956 12.108 0 10.092 0 7.76m5.546-1.459-2.35 3.728c-.225.358.214.761.551.506l2.525-1.916a.48.48 0 0 1 .578-.002l1.869 1.402a1.2 1.2 0 0 0 1.735-.32l2.35-3.728c.226-.358-.214-.761-.551-.506L9.728 7.381a.48.48 0 0 1-.578.002L7.281 5.98a1.2 1.2 0 0 0-1.735.32z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="{{ url_for('serve_static', filename='profiles/js/main.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+
+        $SCRIPT_ROOT = {{ request.script_root | tojson }};
+    </script>
+    <script type="text/javascript" src="{{ url_for('serve_static', filename='profiles/js/app.js') }}"></script>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('marketplace-link').addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent the default behavior of the link
+
+                // Send AJAX request to load marketplace content
+                fetch('/load_marketplace?FarmerID={{ farmer["FarmerID"] }}')  // Pass the FarmerID as a parameter
+                    .then(response => response.json())
+                    .then(data => {
+                        // Change the content of the main-content div
+                        var mainContent = document.getElementById('main-content');
+                        if (mainContent) {
+                            mainContent.innerHTML = data['main-content'];
+                        } else {
+                            console.error("main-content element not found.");
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('Chat-link').addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent the default behavior of the link
+
+                // Send AJAX request to load marketplace content
+                fetch('/load_Chat?ID={{ farmer["FarmerID"] }}')  // Pass the FarmerID as a parameter
+                    .then(response => response.json())
+                    .then(data => {
+                        // Change the content of the main-content div
+                        var mainContent = document.getElementById('main-content');
+                        if (mainContent) {
+                            mainContent.innerHTML = data['main-content'];
+                        } else {
+                            console.error("main-content element not found.");
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('Store_House').addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent the default behavior of the link
+
+                // Send AJAX request to load marketplace content
+                fetch('/load_storeHouse')
+                    .then(response => response.json())
+                    .then(data => {
+                        // Change the content of the main-content div
+                        var mainContent = document.getElementById('main-content');
+                        if (mainContent) {
+                            mainContent.innerHTML = data['main-content'];
+                        } else {
+                            console.error("main-content element not found.");
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+        });
+
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('search-link').addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent the default behavior of the link
+
+                // Send AJAX request to load marketplace content
+                fetch('/load_searchlaborer?FarmerID={{ farmer["FarmerID"] }}')  // Pass the FarmerID as a parameter
+                    .then(response => response.json())
+                    .then(data => {
+                        // Change the content of the main-content div
+                        var mainContent = document.getElementById('main-content');
+                        if (mainContent) {
+                            mainContent.innerHTML = data['main-content'];
+                        } else {
+                            console.error("main-content element not found.");
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+        });
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Add click event listener to the seminar button
+            document.getElementById('seminarButton').addEventListener('click', function (event) {
+                // Call the showSeminarDetails function when clicked
+                showSeminarDetails();
+            });
+        });
+
+        function showSeminarDetails() {
+            $.ajax({
+                url: '/seminar_details?RegionID={{ farmer["Region_ID"] }}',
+                type: 'GET',
+                success: function (response) {
+                    // Populate modal with seminar details
+                    $('#modalSpeakerName').text(response['SpeakerName']);
+                    $('#modalDate').text(response['meeting_date']);
+                    $('#modalLocation').text(response['Location']);
+                    $('#modalTime').text(response['meeting_time']);
+                    $('#modalDescription').text(response['details']);
+
+                    // Set default image source in case Image is empty or undefined
+                    var imageSrc = response['Image'] ? 'data:image/jpeg;base64,' + response['Image'] : '/path/to/default/image.jpg';
+
+                    $('#modalImage').attr('src', imageSrc); // Populate image src
+
+                    // Display modal
+                    $('#seminarModal').css('display', 'block');
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        }
+
+
+
+
+        // Close the modal when the user clicks on the close button
+        $('.close').click(function () {
+            $('#seminarModal').css('display', 'none');
+        });
+
+        // Close the modal when the user clicks anywhere outside of it
+        window.onclick = function (event) {
+            if (event.target == $('#seminarModal')[0]) {
+                $('#seminarModal').css('display', 'none');
+            }
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
